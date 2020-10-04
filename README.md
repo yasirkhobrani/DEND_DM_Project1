@@ -18,15 +18,15 @@ Extract Transform and Load data:
 
 ## Results:
 ### results of Songs table:
-![Songs](https://imgur.com/iB2WHoT)
+![Songs](https://imgur.com/iB2WHoT.png)
 ### results of Artists table:
-![Artists](https://imgur.com/RF25pVY)
+![Artists](https://imgur.com/RF25pVY.png)
 ### results of Users table:
-![Users](https://imgur.com/jFwhwua)
+![Users](https://imgur.com/jFwhwua.png)
 ### results of Time table:
-![Time](https://imgur.com/I2DXBBu)
+![Time](https://imgur.com/I2DXBBu.png)
 ### results of SongPlays table:
-![songPlays](https://imgur.com/Mvc6nLI)
+![songPlays](https://imgur.com/Mvc6nLI.png)
 ## How to run:
 1. Run the terminal.
 2. Execute create_tables.py
