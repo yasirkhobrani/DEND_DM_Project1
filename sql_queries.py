@@ -11,7 +11,7 @@ time_table_drop = "DROP TABLE IF EXISTS time"
 songplay_table_create = ("""
 CREATE TABLE IF NOT EXISTS songplays
 (
-    songplay_id serial PRIMARY KEY,
+    songplay_id serial NOT NULL,
     start_time bigint REFERENCES time(start_time),
     user_id varchar REFERENCES users(user_id),
     level varchar, 
@@ -19,53 +19,58 @@ CREATE TABLE IF NOT EXISTS songplays
     artist_id varchar REFERENCES artists(artist_id), 
     session_id bigint,
     location varchar, 
-    user_agent text
+    user_agent text,
+    PRIMARY KEY(songplay_id)
 )
 """)
 
 user_table_create = ("""
 CREATE TABLE IF NOT EXISTS users
 (
-    user_id varchar PRIMARY KEY, 
+    user_id varchar NOT NULL, 
     first_name varchar, 
     last_name varchar, 
     gender varchar, 
-    level varchar
+    level varchar,
+    PRIMARY KEY(user_id)
 )
 """)
 
 song_table_create = ("""
 CREATE TABLE IF NOT EXISTS songs
 (
-    song_id varchar PRIMARY KEY, 
+    song_id varchar NOT NULL, 
     title varchar,
     artist_id varchar, 
     year int, 
-    duration double precision
+    duration double precision,
+    PRIMARY KEY(song_id)
 )
 """)
 
 artist_table_create = ("""
 CREATE TABLE IF NOT EXISTS artists
 (
-    artist_id varchar PRIMARY KEY, 
+    artist_id varchar NOT NULL, 
     name varchar, 
     location varchar, 
     latitude double precision, 
-    longitude double precision
+    longitude double precision,
+    PRIMARY KEY(artist_id)
 )
 """)
 
 time_table_create = ("""
 CREATE TABLE IF NOT EXISTS time
 (
-    start_time bigint PRIMARY KEY,
+    start_time bigint NOT NULL,
     hour int, 
     day int,
     week int, 
     month int, 
     year int, 
-    weekday int
+    weekday int,
+    PRIMARY KEY(start_time)
 )
 """)
 
@@ -74,7 +79,6 @@ CREATE TABLE IF NOT EXISTS time
 songplay_table_insert = ("""
 INSERT INTO songplays
 ( 
-    songplay_id,
     start_time,
     user_id,
     level, 
@@ -83,8 +87,7 @@ INSERT INTO songplays
     session_id,
     location, 
     user_agent
-) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)
-  ON CONFLICT(songplay_id) DO NOTHING
+) VALUES(%s, %s, %s, %s, %s, %s, %s, %s)
 """)
 
 user_table_insert = ("""
