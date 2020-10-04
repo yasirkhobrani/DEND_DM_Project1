@@ -37,8 +37,3 @@ Extract Transform and Load data:
 ### Other ways I used
 1. To run create_tables.py without using terminal I created run_main.ipynb -> it imports create_tables and runs main function.
 2. To run etl.py without using terminal I included that at the end of etl.ipynb file
-
-
-
-
---------------------------------
